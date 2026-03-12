@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package io.swagger.client.model;
+package client.model;
 
 import java.util.Objects;
 import java.util.Arrays;

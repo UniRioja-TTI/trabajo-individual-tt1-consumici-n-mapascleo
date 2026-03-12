@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package io.swagger.client.model;
+package client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -22,12 +22,12 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * SolicitudResponse
+ * ResultsResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-03-12T15:38:59.001658614Z[GMT]")
 
-public class SolicitudResponse {
+public class ResultsResponse {
   @SerializedName("done")
   private Boolean done = null;
 
@@ -38,9 +38,9 @@ public class SolicitudResponse {
   private String errorMessage = null;
 
   @SerializedName("data")
-  private Boolean data = null;
+  private String data = null;
 
-  public SolicitudResponse done(Boolean done) {
+  public ResultsResponse done(Boolean done) {
     this.done = done;
     return this;
   }
@@ -58,7 +58,7 @@ public class SolicitudResponse {
     this.done = done;
   }
 
-  public SolicitudResponse tokenSolicitud(Integer tokenSolicitud) {
+  public ResultsResponse tokenSolicitud(Integer tokenSolicitud) {
     this.tokenSolicitud = tokenSolicitud;
     return this;
   }
@@ -76,7 +76,7 @@ public class SolicitudResponse {
     this.tokenSolicitud = tokenSolicitud;
   }
 
-  public SolicitudResponse errorMessage(String errorMessage) {
+  public ResultsResponse errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
   }
@@ -94,7 +94,7 @@ public class SolicitudResponse {
     this.errorMessage = errorMessage;
   }
 
-  public SolicitudResponse data(Boolean data) {
+  public ResultsResponse data(String data) {
     this.data = data;
     return this;
   }
@@ -104,11 +104,11 @@ public class SolicitudResponse {
    * @return data
   **/
   @Schema(description = "")
-  public Boolean isData() {
+  public String getData() {
     return data;
   }
 
-  public void setData(Boolean data) {
+  public void setData(String data) {
     this.data = data;
   }
 
@@ -121,11 +121,11 @@ public class SolicitudResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SolicitudResponse solicitudResponse = (SolicitudResponse) o;
-    return Objects.equals(this.done, solicitudResponse.done) &&
-        Objects.equals(this.tokenSolicitud, solicitudResponse.tokenSolicitud) &&
-        Objects.equals(this.errorMessage, solicitudResponse.errorMessage) &&
-        Objects.equals(this.data, solicitudResponse.data);
+    ResultsResponse resultsResponse = (ResultsResponse) o;
+    return Objects.equals(this.done, resultsResponse.done) &&
+        Objects.equals(this.tokenSolicitud, resultsResponse.tokenSolicitud) &&
+        Objects.equals(this.errorMessage, resultsResponse.errorMessage) &&
+        Objects.equals(this.data, resultsResponse.data);
   }
 
   @Override
@@ -137,7 +137,7 @@ public class SolicitudResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SolicitudResponse {\n");
+    sb.append("class ResultsResponse {\n");
     
     sb.append("    done: ").append(toIndentedString(done)).append("\n");
     sb.append("    tokenSolicitud: ").append(toIndentedString(tokenSolicitud)).append("\n");
