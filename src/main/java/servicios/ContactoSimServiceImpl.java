@@ -5,7 +5,9 @@ import modelo.DatosSimulation;
 import modelo.DatosSolicitud;
 import modelo.Entidad;
 import org.springframework.stereotype.Service;
-
+import io.swagger.client.api.SolicitudApi;
+import io.swagger.client.model.Solicitud;
+import io.swagger.client.model.SolicitudResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,9 +57,41 @@ public class ContactoSimServiceImpl implements InterfazContactoSim {
 
     @Override
     public int solicitarSimulation(DatosSolicitud ds) {
-        int token = new Random().nextInt(9000) + 1000;
-        almacenamientoProvisional.put(token, ds);
-        return token;
+        SolicitudApi solicitudApi = new SolicitudApi();
+        solicitudApi.getApiClient().setBasePath("http://localhost:8080");
+        Solicitud peticion = new Solicitud();
+        List<Integer> cantidades = new ArrayList<>();
+        List<String> nombres = new ArrayList<>();
+        for (Map.Entry<Integer, Integer> entry : ds.getNums().entrySet()) {
+            int idEntidad = entry.getKey();
+            int cantidad = entry.getValue();
+            String nombreEntidad = "Desconocida";
+            for (Entidad e : entidadesInventadas) {
+                if (e.getId() == idEntidad) {
+                    nombreEntidad = e.getName();
+                    break;
+                }
+            }
+            cantidades.add(cantidad);
+            nombres.add(nombreEntidad);
+        }
+        peticion.setCantidadesIniciales(cantidades);
+        peticion.setNombreEntidades(nombres);
+        try {
+            SolicitudResponse response = solicitudApi.solicitudSolicitarPost(peticion, "usuario_prueba");
+            if (Boolean.TRUE.equals(response.isDone())) {
+                int tokenReal = response.getTokenSolicitud();
+                almacenamientoProvisional.put(tokenReal, ds);
+                return tokenReal;
+            } else {
+                System.err.println("Error en servidor: " + response.getErrorMessage());
+                return -1;
+            }
+
+        } catch (ApiException e) {
+            System.err.println("Error de conexión al solicitar: " + e.getResponseBody());
+            return -1;
+        }
     }
 
     @Override
@@ -69,7 +103,7 @@ public class ContactoSimServiceImpl implements InterfazContactoSim {
             return new DatosSimulation(response.getData());
         } catch (ApiException e) {
             System.err.println("Error al contactar con la API: " + e.getMessage());
-            return new DatosSimulation("Error al obtener los datos");
+            return new DatosSimulation("Error devuelto por la API: " + e.getResponseBody());
         }
     }
 }
