@@ -10,37 +10,31 @@
  * Do not edit the class manually.
  */
 
-package client.model;
+package io.swagger.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.IOException;
+
 /**
- * SolicitudResponse
+ * EmailResponse
  */
 
 @javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-03-12T15:38:59.001658614Z[GMT]")
 
-public class SolicitudResponse {
+public class EmailResponse {
   @SerializedName("done")
   private Boolean done = null;
-
-  @SerializedName("tokenSolicitud")
-  private Integer tokenSolicitud = null;
 
   @SerializedName("errorMessage")
   private String errorMessage = null;
 
-  @SerializedName("data")
-  private Boolean data = null;
-
-  public SolicitudResponse done(Boolean done) {
+  public EmailResponse done(Boolean done) {
     this.done = done;
     return this;
   }
@@ -58,25 +52,7 @@ public class SolicitudResponse {
     this.done = done;
   }
 
-  public SolicitudResponse tokenSolicitud(Integer tokenSolicitud) {
-    this.tokenSolicitud = tokenSolicitud;
-    return this;
-  }
-
-   /**
-   * Get tokenSolicitud
-   * @return tokenSolicitud
-  **/
-  @Schema(description = "")
-  public Integer getTokenSolicitud() {
-    return tokenSolicitud;
-  }
-
-  public void setTokenSolicitud(Integer tokenSolicitud) {
-    this.tokenSolicitud = tokenSolicitud;
-  }
-
-  public SolicitudResponse errorMessage(String errorMessage) {
+  public EmailResponse errorMessage(String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
   }
@@ -94,24 +70,6 @@ public class SolicitudResponse {
     this.errorMessage = errorMessage;
   }
 
-  public SolicitudResponse data(Boolean data) {
-    this.data = data;
-    return this;
-  }
-
-   /**
-   * Get data
-   * @return data
-  **/
-  @Schema(description = "")
-  public Boolean isData() {
-    return data;
-  }
-
-  public void setData(Boolean data) {
-    this.data = data;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -121,28 +79,24 @@ public class SolicitudResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SolicitudResponse solicitudResponse = (SolicitudResponse) o;
-    return Objects.equals(this.done, solicitudResponse.done) &&
-        Objects.equals(this.tokenSolicitud, solicitudResponse.tokenSolicitud) &&
-        Objects.equals(this.errorMessage, solicitudResponse.errorMessage) &&
-        Objects.equals(this.data, solicitudResponse.data);
+    EmailResponse emailResponse = (EmailResponse) o;
+    return Objects.equals(this.done, emailResponse.done) &&
+        Objects.equals(this.errorMessage, emailResponse.errorMessage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(done, tokenSolicitud, errorMessage, data);
+    return Objects.hash(done, errorMessage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SolicitudResponse {\n");
+    sb.append("class EmailResponse {\n");
     
     sb.append("    done: ").append(toIndentedString(done)).append("\n");
-    sb.append("    tokenSolicitud: ").append(toIndentedString(tokenSolicitud)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }

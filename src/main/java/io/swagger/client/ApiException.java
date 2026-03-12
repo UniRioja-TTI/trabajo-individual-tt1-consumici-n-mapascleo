@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package client;
+package io.swagger.client;
 
 import java.util.Map;
 import java.util.List;

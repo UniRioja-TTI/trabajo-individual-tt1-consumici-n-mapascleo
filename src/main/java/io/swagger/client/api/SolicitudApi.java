@@ -10,25 +10,24 @@
  * Do not edit the class manually.
  */
 
-package client.api;
+package io.swagger.client.api;
 
-import client.ApiCallback;
-import client.ApiClient;
-import client.ApiException;
-import client.ApiResponse;
-import client.Configuration;
-import client.Pair;
-import client.ProgressRequestBody;
-import client.ProgressResponseBody;
+import io.swagger.client.ApiCallback;
+import io.swagger.client.ApiClient;
+import io.swagger.client.ApiException;
+import io.swagger.client.ApiResponse;
+import io.swagger.client.Configuration;
+import io.swagger.client.Pair;
+import io.swagger.client.ProgressRequestBody;
+import io.swagger.client.ProgressResponseBody;
 
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
 
-import client.model.ProblemDetails;
-import client.model.Solicitud;
-import client.model.SolicitudResponse;
+import io.swagger.client.model.Solicitud;
+import io.swagger.client.model.SolicitudResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;

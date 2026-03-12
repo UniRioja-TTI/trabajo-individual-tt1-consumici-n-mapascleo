@@ -10,9 +10,9 @@
  * Do not edit the class manually.
  */
 
-package client.auth;
+package io.swagger.client.auth;
 
-import client.Pair;
+import io.swagger.client.Pair;
 
 import java.util.Map;
 import java.util.List;

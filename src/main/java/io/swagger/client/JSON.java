@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-package client;
+package io.swagger.client;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -28,8 +28,6 @@ import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
 
-import io.swagger.client.model.*;
-
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.reflect.Type;
@@ -38,7 +36,6 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Date;
 import java.util.Map;
-import java.util.HashMap;
 
 public class JSON {
     private Gson gson;

@@ -1,5 +1,6 @@
 package com.tt1.trabajo;
 
+import modelo.DatosSimulation;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.slf4j.Logger;
 
 import interfaces.InterfazContactoSim;
 import modelo.DatosSolicitud;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SolicitudController {
@@ -68,5 +70,16 @@ public class SolicitudController {
         	}
         }
         return "formResult";
+    }
+    @GetMapping("/grid")
+    @ResponseBody
+    public String mostrarGrid(@RequestParam("tok") Integer tok) {
+        DatosSimulation datos = ics.descargarDatos(tok);
+
+        if (datos != null && datos.getGridData() != null) {
+            return datos.getGridData();
+        } else {
+            return "No se encontraron datos para el token provisto.";
+        }
     }
 }

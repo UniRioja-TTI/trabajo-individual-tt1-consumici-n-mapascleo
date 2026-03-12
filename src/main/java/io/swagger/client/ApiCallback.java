@@ -10,9 +10,7 @@
  * Do not edit the class manually.
  */
 
-package client;
-
-import java.io.IOException;
+package io.swagger.client;
 
 import java.util.Map;
 import java.util.List;

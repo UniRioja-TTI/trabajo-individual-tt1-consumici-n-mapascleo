@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import io.swagger.client.api.ResultadosApi;
+import io.swagger.client.model.ResultsResponse;
+import io.swagger.client.ApiException;
 
 @Service
 public class ContactoSimServiceImpl implements InterfazContactoSim {
@@ -59,6 +62,14 @@ public class ContactoSimServiceImpl implements InterfazContactoSim {
 
     @Override
     public DatosSimulation descargarDatos(int ticket) {
-        return null;
+        ResultadosApi resultadosApi = new ResultadosApi();
+        resultadosApi.getApiClient().setBasePath("http://IP_DE_TU_MAQUINA:PUERTO");
+        try {
+            ResultsResponse response = resultadosApi.resultadosPost("usuario_prueba", ticket);
+            return new DatosSimulation(response.getData());
+        } catch (ApiException e) {
+            System.err.println("Error al contactar con la API: " + e.getMessage());
+            return new DatosSimulation("Error al obtener los datos");
+        }
     }
 }
