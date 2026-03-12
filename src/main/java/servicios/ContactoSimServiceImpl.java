@@ -63,7 +63,7 @@ public class ContactoSimServiceImpl implements InterfazContactoSim {
     @Override
     public DatosSimulation descargarDatos(int ticket) {
         ResultadosApi resultadosApi = new ResultadosApi();
-        resultadosApi.getApiClient().setBasePath("http://IP_DE_TU_MAQUINA:PUERTO");
+        resultadosApi.getApiClient().setBasePath("http://localhost/8080");
         try {
             ResultsResponse response = resultadosApi.resultadosPost("usuario_prueba", ticket);
             return new DatosSimulation(response.getData());
