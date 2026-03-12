@@ -14,13 +14,104 @@ package io.swagger.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.IOException;
 /**
  * ResultsResponse
  */
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-03-05T15:40:46.564076770Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaClientCodegen", date = "2026-03-12T15:38:59.001658614Z[GMT]")
 
 public class ResultsResponse {
+  @SerializedName("done")
+  private Boolean done = null;
+
+  @SerializedName("tokenSolicitud")
+  private Integer tokenSolicitud = null;
+
+  @SerializedName("errorMessage")
+  private String errorMessage = null;
+
+  @SerializedName("data")
+  private String data = null;
+
+  public ResultsResponse done(Boolean done) {
+    this.done = done;
+    return this;
+  }
+
+   /**
+   * Get done
+   * @return done
+  **/
+  @Schema(description = "")
+  public Boolean isDone() {
+    return done;
+  }
+
+  public void setDone(Boolean done) {
+    this.done = done;
+  }
+
+  public ResultsResponse tokenSolicitud(Integer tokenSolicitud) {
+    this.tokenSolicitud = tokenSolicitud;
+    return this;
+  }
+
+   /**
+   * Get tokenSolicitud
+   * @return tokenSolicitud
+  **/
+  @Schema(description = "")
+  public Integer getTokenSolicitud() {
+    return tokenSolicitud;
+  }
+
+  public void setTokenSolicitud(Integer tokenSolicitud) {
+    this.tokenSolicitud = tokenSolicitud;
+  }
+
+  public ResultsResponse errorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @Schema(description = "")
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+  public ResultsResponse data(String data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @Schema(description = "")
+  public String getData() {
+    return data;
+  }
+
+  public void setData(String data) {
+    this.data = data;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -30,12 +121,16 @@ public class ResultsResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return true;
+    ResultsResponse resultsResponse = (ResultsResponse) o;
+    return Objects.equals(this.done, resultsResponse.done) &&
+        Objects.equals(this.tokenSolicitud, resultsResponse.tokenSolicitud) &&
+        Objects.equals(this.errorMessage, resultsResponse.errorMessage) &&
+        Objects.equals(this.data, resultsResponse.data);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(done, tokenSolicitud, errorMessage, data);
   }
 
 
@@ -44,6 +139,10 @@ public class ResultsResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ResultsResponse {\n");
     
+    sb.append("    done: ").append(toIndentedString(done)).append("\n");
+    sb.append("    tokenSolicitud: ").append(toIndentedString(tokenSolicitud)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("}");
     return sb.toString();
   }
