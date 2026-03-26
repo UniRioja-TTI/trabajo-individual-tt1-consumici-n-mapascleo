@@ -58,7 +58,7 @@ public class ContactoSimServiceImpl implements InterfazContactoSim {
     @Override
     public int solicitarSimulation(DatosSolicitud ds) {
         SolicitudApi solicitudApi = new SolicitudApi();
-        solicitudApi.getApiClient().setBasePath("http://localhost:8080");
+        solicitudApi.getApiClient().setBasePath("http://servicio-consumible:8080");
         Solicitud peticion = new Solicitud();
         List<Integer> cantidades = new ArrayList<>();
         List<String> nombres = new ArrayList<>();
@@ -97,7 +97,7 @@ public class ContactoSimServiceImpl implements InterfazContactoSim {
     @Override
     public DatosSimulation descargarDatos(int ticket) {
         ResultadosApi resultadosApi = new ResultadosApi();
-        resultadosApi.getApiClient().setBasePath("http://localhost:8080");
+        resultadosApi.getApiClient().setBasePath("http://servicio-consumible:8080");
         try {
             ResultsResponse response = resultadosApi.resultadosPost("usuario_prueba", ticket);
             return new DatosSimulation(response.getData());
