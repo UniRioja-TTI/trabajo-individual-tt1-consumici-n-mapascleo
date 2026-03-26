@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mi-spring:
+    image: mi_app_spring:latest 
+    ports:
+      - "8081:8081" 
+    networks:
+      - red_tt1
+    depends_on:
+      - servicio-consumible
+
+  servicio-consumible:
+    image: javillour/servicio-tt1:amd64 
+    
+    networks:
+      - red_tt1
+
+networks:
+  red_tt1:
